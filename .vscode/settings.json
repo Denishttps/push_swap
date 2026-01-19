@@ -1,0 +1,15 @@
+{
+  "42header.username": "dbobrov",
+  "42header.email": "dbobrov@student.42wolfsburg.de",
+    "[c]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4,
+        "editor.detectIndentation": false
+    },
+    "files.associations": {
+      "*.dbclient-js": "javascript",
+      "libft.h": "c",
+      "*.gitignore": "c",
+      "stdarg.h": "c"
+    }
+}
