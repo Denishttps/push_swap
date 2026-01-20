@@ -6,19 +6,19 @@
 /*   By: dbobrov <dbobrov@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:10:35 by dbobrov           #+#    #+#             */
-/*   Updated: 2026/01/20 17:59:15 by dbobrov          ###   ########.fr       */
+/*   Updated: 2026/01/20 18:32:33 by dbobrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-int	swap(t_list **stack)
+void	swap(t_list **stack)
 {
 	t_list *first;
 	t_list *second;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return (0);
+		return;
 	first = *stack;
 	second = first->next;
 	first->next = second->next;
@@ -27,34 +27,42 @@ int	swap(t_list **stack)
 	return (1);
 }
 
-int	push(t_list **stack_from, t_list **stack_to)
+void	push(t_list **stack_from, t_list **stack_to)
 {
 	t_list	*tmp;
 	
 	if (!stack_from || !*stack_from || !(*stack_from)->next || !stack_to || !*stack_to || !(*stack_to)->next)
-		return (0);
+		return;
 	tmp = *stack_from;
 	*stack_from = tmp->next;
 	tmp->next = *stack_to;
 	*stack_to = tmp;
-	return (1);
 }
 
-int	rotate(t_list **stack)
+void	rotate(t_list **stack)
 {
 	t_list	*tmp;
 	
 	if (!stack || !*stack || !(*stack)->next)
-		return (0);
+		return;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	ft_lstadd_back(stack, tmp);
-	return (1);
 }
 
-int reverse_rotate(t_list **stack)
+void reverse_rotate(t_list **stack)
 {
-	t_list	*tmp;
-	
-	tmp = *stack;
+    t_list *last = *stack;
+    t_list *before_last = NULL;
+
+	if (!*stack || !(*stack)->next)
+        return;
+    while (last->next)
+    {
+        before_last = last;
+        last = last->next;
+    }
+    before_last->next = NULL;
+    last->next = *stack;      
+    *stack = last;            
 }
