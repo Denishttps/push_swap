@@ -15,16 +15,14 @@
 
 int main(int argc, char **argv)
 {
-	int *stack_a;
-	int *stack_b;
+	t_list *stack_a;
+	t_list *stack_b;
 
 	if (argc <= 1)
 		ft_error();
-	stack_a = malloc((argc - 1) * sizeof(int));
-	stack_b = malloc((argc - 1) * sizeof(int));
-	if (!stack_a || !stack_b)
-		ft_error();
-	add_in_stack(argc, argv, stack_a);
+	stack_a = NULL;
+	stack_b = NULL;
+	add_in_stack(argc, argv, &stack_a);
 
 	
 
@@ -33,7 +31,7 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-void add_in_stack(int argc, char **argv, int *stack)
+void add_in_stack(int argc, char **argv, t_list **stack)
 {
 	int	i;
 	int	num;
@@ -44,9 +42,11 @@ void add_in_stack(int argc, char **argv, int *stack)
 		if (!ft_is_int(argv[i]))
 			ft_error();
 		num = ft_atoi(argv[i]);
-		if (ft_in_stack(stack, i - 1, num))
+		if (ft_in_stack(*stack, num))
 			ft_error();
-		stack[i - 1] = num;
+		ft_lstadd_back(stack, ft_lstnew(num));
+		if (!*stack)
+			ft_error();
 		i++;
 	}
 	return (0);

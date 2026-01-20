@@ -51,18 +51,15 @@ int ft_error()
 	exit(1);
 }
 
-int ft_in_stack(int *stack, int size, int num)
+int ft_in_stack(t_list *stack, int num)
 {
-	int	i;
-
-	if (size <= 0)
+	if (!stack)
 		return (0);
-	i = 0;
-	while (i < size)
+	while (stack)
 	{
-		if (stack[i] == num)
+		if ((int)(stack->content) == num)
 			return (1);
-		i++;
+		stack = stack->next;
 	}
 	return (0);
 }

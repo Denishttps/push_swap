@@ -28,9 +28,9 @@
 #include "ft_printf/ft_printf.h"
 
 int ft_is_int(char *str);
-int ft_error();
-int ft_in_stack(int *stack, int size, int num);
-int add_in_stack(int argc, char **argv, int *stack);
+int	ft_error();
+int	ft_in_stack(t_list *stack, int num);
+void	add_in_stack(int argc, char **argv, t_list **stack);
  
 
 #endif
