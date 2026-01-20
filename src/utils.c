@@ -48,7 +48,7 @@ int ft_is_int(char *str)
 int ft_error()
 {
 	write(2, "Error\n", 6);
-	return (1);
+	exit(1);
 }
 
 int ft_in_stack(int *stack, int size, int num)
