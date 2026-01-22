@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbobrov <dbobrov@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/19 23:11:15 by dbobrov           #+#    #+#             */
-/*   Updated: 2026/01/19 23:11:15 by dbobrov          ###   ########.fr       */
+/*   Created: 2026/01/21 23:32:14 by dbobrov           #+#    #+#             */
+/*   Updated: 2026/01/21 23:32:14 by dbobrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void	sort_three(t_stack **a)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	int	top;
+	int	mid;
+	int	bot;
 
-	if (argc == 1)
-		ft_error();
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc == 2)
-		parse_single_argument(argv[1], &stack_a);
-	else
-		add_in_stack(argc, argv, &stack_a, 1);
-	if (is_sorted(stack_a))
+	top = (*a)->value;
+	mid = (*a)->next->value;
+	bot = (*a)->next->next->value;
+	if (top > mid && mid < bot && top < bot)
+		sa(a);
+	else if (top > mid && mid > bot)
 	{
-		free_stacks(&stack_a, &stack_b);
-		return (0);
+		sa(a);
+		rra(a);
 	}
-	sort_stack(&stack_a, &stack_b);
-	free_stacks(&stack_a, &stack_b);
-	return (0);
+	else if (top > mid && mid < bot && top > bot)
+		ra(a);
+	else if (top < mid && mid > bot && top < bot)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (top < mid && mid > bot && top > bot)
+		rra(a);
 }
-

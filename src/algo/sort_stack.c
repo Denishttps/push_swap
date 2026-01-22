@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbobrov <dbobrov@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/19 23:11:15 by dbobrov           #+#    #+#             */
-/*   Updated: 2026/01/19 23:11:15 by dbobrov          ###   ########.fr       */
+/*   Created: 2026/01/22 01:03:28 by dbobrov           #+#    #+#             */
+/*   Updated: 2026/01/22 01:03:28 by dbobrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void sort_stack(t_stack **a, t_stack **b)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	int	size;
 
-	if (argc == 1)
-		ft_error();
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc == 2)
-		parse_single_argument(argv[1], &stack_a);
+	size = stack_size(*a);
+	if (size <= 3)
+		sort_three(a);
 	else
-		add_in_stack(argc, argv, &stack_a, 1);
-	if (is_sorted(stack_a))
-	{
-		free_stacks(&stack_a, &stack_b);
-		return (0);
-	}
-	sort_stack(&stack_a, &stack_b);
-	free_stacks(&stack_a, &stack_b);
-	return (0);
+		sort_large_stack(a, b);
 }
 
+void sort_large_stack(t_stack **a, t_stack **b)
+{
+	int size;
+	size = stack_size(*a);
+	while (size > 3)
+	{
+		pb(a, b);
+	}
+	
+}

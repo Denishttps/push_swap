@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   steck_clear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbobrov <dbobrov@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/19 23:11:15 by dbobrov           #+#    #+#             */
-/*   Updated: 2026/01/19 23:11:15 by dbobrov          ###   ########.fr       */
+/*   Created: 2026/01/22 00:02:35 by dbobrov           #+#    #+#             */
+/*   Updated: 2026/01/22 00:02:35 by dbobrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void stack_clear(t_stack **stack)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	t_stack *current;
+	t_stack *next;
 
-	if (argc == 1)
-		ft_error();
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc == 2)
-		parse_single_argument(argv[1], &stack_a);
-	else
-		add_in_stack(argc, argv, &stack_a, 1);
-	if (is_sorted(stack_a))
+	if (!stack || !*stack)
+		return;
+	current = *stack;
+	while (current)
 	{
-		free_stacks(&stack_a, &stack_b);
-		return (0);
+		next = current->next;
+		free(current);
+		current = next;
 	}
-	sort_stack(&stack_a, &stack_b);
-	free_stacks(&stack_a, &stack_b);
-	return (0);
+	*stack = NULL;
 }
-

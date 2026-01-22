@@ -1,37 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbobrov <dbobrov@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/19 23:11:15 by dbobrov           #+#    #+#             */
-/*   Updated: 2026/01/19 23:11:15 by dbobrov          ###   ########.fr       */
+/*   Created: 2026/01/21 23:07:22 by dbobrov           #+#    #+#             */
+/*   Updated: 2026/01/21 23:07:22 by dbobrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void swap_int(int *a, int *b)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	int	temp;
 
-	if (argc == 1)
-		ft_error();
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc == 2)
-		parse_single_argument(argv[1], &stack_a);
-	else
-		add_in_stack(argc, argv, &stack_a, 1);
-	if (is_sorted(stack_a))
-	{
-		free_stacks(&stack_a, &stack_b);
-		return (0);
-	}
-	sort_stack(&stack_a, &stack_b);
-	free_stacks(&stack_a, &stack_b);
-	return (0);
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
+void bubble_sort(int *arr, int size)
+{
+	int	i;
+	int	j;
+	bool swapped;
+	i = 0;
+	while (i < size - 1)
+	{
+		j = 0;
+		while (j < size - i - 1)
+		{
+			swapped = false;
+			if (arr[j] > arr[j + 1])
+			{
+				swap_int(&arr[j], &arr[j + 1]);
+				swapped = true;
+			}
+			if (!swapped)
+				break;
+			j++;
+		}
+		i++;
+	}
+}

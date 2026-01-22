@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbobrov <dbobrov@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/19 23:11:15 by dbobrov           #+#    #+#             */
-/*   Updated: 2026/01/19 23:11:15 by dbobrov          ###   ########.fr       */
+/*   Created: 2026/01/22 00:02:16 by dbobrov           #+#    #+#             */
+/*   Updated: 2026/01/22 00:02:16 by dbobrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int stack_size(t_stack *stack)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
+	int size;
 
-	if (argc == 1)
-		ft_error();
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc == 2)
-		parse_single_argument(argv[1], &stack_a);
-	else
-		add_in_stack(argc, argv, &stack_a, 1);
-	if (is_sorted(stack_a))
+	size = 0;
+	while (stack)
 	{
-		free_stacks(&stack_a, &stack_b);
-		return (0);
+		size++;
+		stack = stack->next;
 	}
-	sort_stack(&stack_a, &stack_b);
-	free_stacks(&stack_a, &stack_b);
-	return (0);
+	return (size);
 }
-

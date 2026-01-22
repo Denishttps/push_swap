@@ -13,24 +13,23 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define SA "sa"
-# define SB "sb"
-# define PA "pa"
-# define PB "pb"
-# define RA "ra"
-# define RB "rb"
-# define RRA "rra"
-# define RRB "rrb"
-
 # define CHUNK_CONSTANT 50
 # define SORT_COMPLEX_LIMIT 5
 
-#include "ft_printf/ft_printf.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdbool.h>
+# include "libft.h"
+# include "ft_printf.h"
+# include "stack.h"
+# include "algo.h"
 
-int ft_is_int(char *str);
-int	ft_error();
-int	ft_in_stack(t_list *stack, int num);
-void	add_in_stack(int argc, char **argv, t_list **stack);
+int		ft_is_int(char *str);
+void	ft_error();
+bool	ft_in_stack(t_stack *stack, int num);
+void	add_in_stack(int argc, char **argv, t_stack **stack, int start);
+void	free_stacks(t_stack **stack_a, t_stack **stack_b);
+void	parse_single_argument(char *arg, t_stack **stack);
  
 
 #endif

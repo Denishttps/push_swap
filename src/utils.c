@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "push_swap.h"
 
 #include <limits.h>
 
@@ -45,21 +45,29 @@ int ft_is_int(char *str)
 	return (1);
 }
 
-int ft_error()
+void	ft_error()
 {
 	write(2, "Error\n", 6);
 	exit(1);
 }
 
-int ft_in_stack(t_list *stack, int num)
+bool ft_in_stack(t_stack *stack, int num)
 {
 	if (!stack)
-		return (0);
+		return (false);
 	while (stack)
 	{
-		if ((int)(stack->content) == num)
-			return (1);
+		if (stack->value == num)
+			return (true);
 		stack = stack->next;
 	}
-	return (0);
+	return (false);
+}
+
+void free_stacks(t_stack **stack_a, t_stack **stack_b)
+{
+	if (stack_a && *stack_a)
+		stack_clear(stack_a);
+	if (stack_b && *stack_b)
+		stack_clear(stack_b);
 }
