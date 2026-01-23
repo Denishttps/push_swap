@@ -16,10 +16,10 @@
 # define CHUNK_CONSTANT 50
 # define SORT_COMPLEX_LIMIT 5
 
-# include "algo.h"
-# include "ft_printf.h"
-# include "libft.h"
 # include "stack.h"
+# include "ft_printf.h"
+# include "algo.h"
+# include "libft.h"
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>

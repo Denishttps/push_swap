@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+int	total_cost(int cost_a, int cost_b);
+
 int	abs(int x)
 {
 	if (x < 0)
@@ -19,20 +21,46 @@ int	abs(int x)
 	return (x);
 }
 
+int	total_cost(int cost_a, int cost_b)
+{
+	int	a;
+	int	b;
+
+	a = cost_a;
+	b = cost_b;
+	if (a >= 0 && b >= 0)
+	{
+		if (a > b)
+			return (a);
+		return (b);
+	}
+	if (a < 0 && b < 0)
+	{
+		if (-a > -b)
+			return (-a);
+		return (-b);
+	}
+	if (a < 0)
+		a = -a;
+	if (b < 0)
+		b = -b;
+	return (a + b);
+}
+
 t_stack	*get_cheapest(t_stack *b)
 {
 	t_stack	*best;
 	int		min_cost;
-	int		total_cost;
+	int		current_cost;
 
 	best = b;
-	min_cost = abs(b->cost_a) + abs(b->cost_b);
+	min_cost = total_cost(b->cost_a, b->cost_b);
 	while (b)
 	{
-		total_cost = abs(b->cost_a) + abs(b->cost_b);
-		if (total_cost < min_cost)
+		current_cost = total_cost(b->cost_a, b->cost_b);
+		if (current_cost < min_cost)
 		{
-			min_cost = total_cost;
+			min_cost = current_cost;
 			best = b;
 		}
 		b = b->next;

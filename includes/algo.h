@@ -13,6 +13,8 @@
 #ifndef ALGO_H
 # define ALGO_H
 
+# include <stdbool.h>
+
 void	bubble_sort(int *arr, int size);
 void	sort_three(t_stack **a);
 bool	is_sorted(t_stack *stack);
