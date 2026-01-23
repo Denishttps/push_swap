@@ -17,7 +17,12 @@ void	sort_stack(t_stack **a, t_stack **b)
 	int	size;
 
 	size = stack_size(*a);
-	if (size <= 3)
+	if (size == 2)
+	{
+		if (!is_sorted(*a))
+			sa(a);
+	}
+	else if (size == 3)
 		sort_three(a);
 	else
 		sort_large_stack(a, b);
