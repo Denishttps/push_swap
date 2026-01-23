@@ -14,23 +14,20 @@
 
 #include <limits.h>
 
-int ft_is_int(char *str)
+int	ft_is_int(char *str)
 {
 	long	num;
 	int		sign;
 
 	num = 0;
 	sign = 1;
-	if (!str || !*str)
+	if (!str)
 		return (0);
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
 			sign = -1;
-		str++;
-	}
 	if (!*str)
 		return (0);
 	while (*str)
@@ -45,13 +42,13 @@ int ft_is_int(char *str)
 	return (1);
 }
 
-void	ft_error()
+void	ft_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
 }
 
-bool ft_in_stack(t_stack *stack, int num)
+bool	ft_in_stack(t_stack *stack, int num)
 {
 	if (!stack)
 		return (false);
@@ -64,7 +61,7 @@ bool ft_in_stack(t_stack *stack, int num)
 	return (false);
 }
 
-void free_stacks(t_stack **stack_a, t_stack **stack_b)
+void	free_stacks(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a && *stack_a)
 		stack_clear(stack_a);

@@ -28,10 +28,13 @@ int	find_min_index(t_stack *a)
 
 int	find_target_index(t_stack *a, int b_index)
 {
-	t_stack *tmp = a;
-	int target = INT_MAX;
-	int min_index = a->index;
+	t_stack	*tmp;
+	int		target;
+	int		min_index;
 
+	tmp = a;
+	target = INT_MAX;
+	min_index = a->index;
 	while (tmp)
 	{
 		if (tmp->index < min_index)
@@ -40,10 +43,9 @@ int	find_target_index(t_stack *a, int b_index)
 			target = tmp->index;
 		tmp = tmp->next;
 	}
-
 	if (target == INT_MAX)
-		return min_index;
-	return target;
+		return (min_index);
+	return (target);
 }
 
 void	set_target_node(t_stack *a, t_stack *b)

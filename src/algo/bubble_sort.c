@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void swap_int(int *a, int *b)
+void	swap_int(int *a, int *b)
 {
 	int	temp;
 
@@ -21,11 +21,11 @@ void swap_int(int *a, int *b)
 	*b = temp;
 }
 
-void bubble_sort(int *arr, int size)
+void	bubble_sort(int *arr, int size)
 {
-	int	i;
-	int	j;
-	bool swapped;
+	int		i;
+	int		j;
+	bool	swapped;
 
 	i = 0;
 	while (i < size - 1)
@@ -42,7 +42,7 @@ void bubble_sort(int *arr, int size)
 			j++;
 		}
 		if (!swapped)
-			break;
+			break ;
 		i++;
 	}
 }

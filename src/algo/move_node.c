@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void do_rr_or_rrr(t_stack **a, t_stack **b, t_stack *n)
+void	do_rr_or_rrr(t_stack **a, t_stack **b, t_stack *n)
 {
 	while (n->cost_a > 0 && n->cost_b > 0)
 	{
@@ -28,7 +28,7 @@ void do_rr_or_rrr(t_stack **a, t_stack **b, t_stack *n)
 	}
 }
 
-void do_ra_or_rra(t_stack **a, t_stack *n)
+void	do_ra_or_rra(t_stack **a, t_stack *n)
 {
 	while (n->cost_a > 0)
 	{
@@ -42,14 +42,13 @@ void do_ra_or_rra(t_stack **a, t_stack *n)
 	}
 }
 
-void do_rb_or_rrb(t_stack **b, t_stack *n)
+void	do_rb_or_rrb(t_stack **b, t_stack *n)
 {
 	while (n->cost_b > 0)
 	{
 		rb(b);
 		n->cost_b--;
 	}
-	
 	while (n->cost_b < 0)
 	{
 		rrb(b);
@@ -57,10 +56,10 @@ void do_rb_or_rrb(t_stack **b, t_stack *n)
 	}
 }
 
-void move_node(t_stack **a, t_stack **b, t_stack *n)
+void	move_node(t_stack **a, t_stack **b, t_stack *n)
 {
 	do_rr_or_rrr(a, b, n);
 	do_ra_or_rra(a, n);
 	do_rb_or_rrb(b, n);
-    pa(a, b);
+	pa(a, b);
 }

@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-void push(t_stack **src, t_stack **dest)
+void	push(t_stack **src, t_stack **dest)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!src || !*src)
-		return;
+		return ;
 	temp = *src;
 	*src = (*src)->next;
 	if (*src)
@@ -28,13 +28,13 @@ void push(t_stack **src, t_stack **dest)
 	*dest = temp;
 }
 
-void pa(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_b, stack_a);
 	ft_printf("%s\n", PA);
 }
 
-void pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_a, stack_b);
 	ft_printf("%s\n", PB);

@@ -13,13 +13,13 @@
 #ifndef ALGO_H
 # define ALGO_H
 
-void    bubble_sort(int *arr, int size);
-void    sort_three(t_stack **a);
-bool    is_sorted(t_stack *stack);
-void    sort_stack(t_stack **a, t_stack **b);
-void    sort_large_stack(t_stack **a, t_stack **b);
+void	bubble_sort(int *arr, int size);
+void	sort_three(t_stack **a);
+bool	is_sorted(t_stack *stack);
+void	sort_stack(t_stack **a, t_stack **b);
+void	sort_large_stack(t_stack **a, t_stack **b);
 
-t_stack *get_cheapest(t_stack *b);
-void    move_node(t_stack **a, t_stack **b, t_stack *n);
+t_stack	*get_cheapest(t_stack *b);
+void	move_node(t_stack **a, t_stack **b, t_stack *n);
 
 #endif

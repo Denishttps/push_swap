@@ -15,8 +15,9 @@
 int	*stack_to_array(t_stack *stack, int size)
 {
 	int	*arr;
-	int	i = 0;
+	int	i;
 
+	i = 0;
 	arr = malloc(sizeof(int) * size);
 	if (!arr)
 		return (NULL);
@@ -40,7 +41,7 @@ void	assign_index(t_stack *a, int *arr, int size)
 			if (arr[i] == a->value)
 			{
 				a->index = i;
-				break;
+				break ;
 			}
 			i++;
 		}
@@ -48,7 +49,7 @@ void	assign_index(t_stack *a, int *arr, int size)
 	}
 }
 
-void stack_set_index(t_stack **stack)
+void	stack_set_index(t_stack **stack)
 {
 	int	size;
 	int	*arr;

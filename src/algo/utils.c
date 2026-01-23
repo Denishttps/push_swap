@@ -12,27 +12,30 @@
 
 #include "push_swap.h"
 
-int	abs(int	x)
+int	abs(int x)
 {
 	if (x < 0)
 		return (-x);
 	return (x);
 }
 
-t_stack *get_cheapest(t_stack *b)
+t_stack	*get_cheapest(t_stack *b)
 {
-    t_stack *best = b;
-    int min_cost = abs(b->cost_a) + abs(b->cost_b);
+	t_stack	*best;
+	int		min_cost;
+	int		total_cost;
 
-    while (b)
-    {
-        int total_cost = abs(b->cost_a) + abs(b->cost_b);
-        if (total_cost < min_cost)
-        {
-            min_cost = total_cost;
-            best = b;
-        }
-        b = b->next;
-    }
-    return best;
+	best = b;
+	min_cost = abs(b->cost_a) + abs(b->cost_b);
+	while (b)
+	{
+		total_cost = abs(b->cost_a) + abs(b->cost_b);
+		if (total_cost < min_cost)
+		{
+			min_cost = total_cost;
+			best = b;
+		}
+		b = b->next;
+	}
+	return (best);
 }

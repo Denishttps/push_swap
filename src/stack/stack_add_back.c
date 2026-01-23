@@ -12,16 +12,16 @@
 
 #include "push_swap.h"
 
-void stack_add_back(t_stack **stack, t_stack *elem)
+void	stack_add_back(t_stack **stack, t_stack *elem)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	if (!stack || !elem)
-		return;
+		return ;
 	if (!*stack)
 	{
 		*stack = elem;
-		return;
+		return ;
 	}
 	last = *stack;
 	while (last->next)

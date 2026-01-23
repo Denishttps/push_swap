@@ -1,6 +1,6 @@
 import random
 
-COUNT = 500          # сколько чисел
+COUNT = 500
 MIN_VAL = -10000
 MAX_VAL = 10000
 

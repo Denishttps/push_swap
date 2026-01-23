@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_stack *stack_last(t_stack *stack)
+t_stack	*stack_last(t_stack *stack)
 {
 	if (!stack)
 		return (NULL);

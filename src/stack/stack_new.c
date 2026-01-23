@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-t_stack *stack_new(int value)
+t_stack	*stack_new(int value)
 {
-	t_stack *new_elem;
+	t_stack	*new_elem;
 
 	new_elem = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_elem)

@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void stack_add_front(t_stack **stack, t_stack *elem)
+void	stack_add_front(t_stack **stack, t_stack *elem)
 {
 	if (!stack || !elem)
-		return;
+		return ;
 	if (!*stack)
 	{
 		*stack = elem;
-		return;
+		return ;
 	}
 	elem->next = *stack;
 	(*stack)->prev = elem;

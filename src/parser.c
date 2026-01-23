@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int len_array(char **arr)
+int	len_array(char **arr)
 {
 	int	i;
 
@@ -22,12 +22,12 @@ int len_array(char **arr)
 	return (i);
 }
 
-void ft_free_split(char **arr)
+void	ft_free_split(char **arr)
 {
 	int	i;
 
 	if (!arr)
-		return;
+		return ;
 	i = 0;
 	while (arr[i])
 	{
@@ -37,7 +37,7 @@ void ft_free_split(char **arr)
 	free(arr);
 }
 
-void add_in_stack(int size, char **args, t_stack **stack, int start)
+void	add_in_stack(int size, char **args, t_stack **stack, int start)
 {
 	int		i;
 	long	num;
@@ -59,7 +59,7 @@ void add_in_stack(int size, char **args, t_stack **stack, int start)
 	}
 }
 
-void parse_single_argument(char *arg, t_stack **stack)
+void	parse_single_argument(char *arg, t_stack **stack)
 {
 	char	**numbers;
 

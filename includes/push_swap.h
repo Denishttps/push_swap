@@ -16,20 +16,19 @@
 # define CHUNK_CONSTANT 50
 # define SORT_COMPLEX_LIMIT 5
 
+# include "algo.h"
+# include "ft_printf.h"
+# include "libft.h"
+# include "stack.h"
+# include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdbool.h>
-# include "libft.h"
-# include "ft_printf.h"
-# include "stack.h"
-# include "algo.h"
 
 int		ft_is_int(char *str);
-void	ft_error();
+void	ft_error(void);
 bool	ft_in_stack(t_stack *stack, int num);
 void	add_in_stack(int argc, char **argv, t_stack **stack, int start);
 void	free_stacks(t_stack **stack_a, t_stack **stack_b);
 void	parse_single_argument(char *arg, t_stack **stack);
- 
 
 #endif
