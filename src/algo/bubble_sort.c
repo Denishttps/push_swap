@@ -26,22 +26,23 @@ void bubble_sort(int *arr, int size)
 	int	i;
 	int	j;
 	bool swapped;
+
 	i = 0;
 	while (i < size - 1)
 	{
+		swapped = false;
 		j = 0;
 		while (j < size - i - 1)
 		{
-			swapped = false;
 			if (arr[j] > arr[j + 1])
 			{
 				swap_int(&arr[j], &arr[j + 1]);
 				swapped = true;
 			}
-			if (!swapped)
-				break;
 			j++;
 		}
+		if (!swapped)
+			break;
 		i++;
 	}
 }

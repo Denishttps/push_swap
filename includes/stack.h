@@ -29,7 +29,8 @@ typedef struct s_stack
 {
     int value;
     int index;
-    int target_pos;
+	int pos;
+    int target_index;
     int cost_a;
     int cost_b;
     struct s_stack  *prev;
@@ -58,8 +59,11 @@ t_stack *stack_new(int value);
 int     stack_size(t_stack *stack);
 void    stack_clear(t_stack **stack);
 void	stack_set_index(t_stack **stack);
+void	stack_set_pos(t_stack *stack);
 
 t_stack *stack_last(t_stack *stack);
+void	set_target_node(t_stack *a, t_stack *b);
+void 	stack_set_costs(t_stack *a, t_stack *b);
 
 
 #endif

@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_new.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbobrov <dbobrov@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 23:19:48 by dbobrov           #+#    #+#             */
-/*   Updated: 2026/01/21 23:19:48 by dbobrov          ###   ########.fr       */
+/*   Created: 2026/01/23 00:39:01 by dbobrov           #+#    #+#             */
+/*   Updated: 2026/01/23 00:39:01 by dbobrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *stack_new(int value)
+int	abs(int	x)
 {
-	t_stack *new_elem;
+	if (x < 0)
+		return (-x);
+	return (x);
+}
 
-	new_elem = (t_stack *)malloc(sizeof(t_stack));
-	if (!new_elem)
-		return (NULL);
-	new_elem->value = value;
-	new_elem->index = -1;
-	new_elem->pos = -1;
-	new_elem->target_index = -1;
-	new_elem->cost_a = 0;
-	new_elem->cost_b = 0;
-	new_elem->prev = NULL;
-	new_elem->next = NULL;
-	return (new_elem);
+t_stack *get_cheapest(t_stack *b)
+{
+    t_stack *best = b;
+    int min_cost = abs(b->cost_a) + abs(b->cost_b);
+
+    while (b)
+    {
+        int total_cost = abs(b->cost_a) + abs(b->cost_b);
+        if (total_cost < min_cost)
+        {
+            min_cost = total_cost;
+            best = b;
+        }
+        b = b->next;
+    }
+    return best;
 }

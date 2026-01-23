@@ -25,6 +25,7 @@ int main(int argc, char **argv)
 		parse_single_argument(argv[1], &stack_a);
 	else
 		add_in_stack(argc, argv, &stack_a, 1);
+	stack_set_index(&stack_a);
 	if (is_sorted(stack_a))
 	{
 		free_stacks(&stack_a, &stack_b);

@@ -12,19 +12,50 @@
 
 #include "push_swap.h"
 
+int	*stack_to_array(t_stack *stack, int size)
+{
+	int	*arr;
+	int	i = 0;
+
+	arr = malloc(sizeof(int) * size);
+	if (!arr)
+		return (NULL);
+	while (stack)
+	{
+		arr[i++] = stack->value;
+		stack = stack->next;
+	}
+	return (arr);
+}
+
+void	assign_index(t_stack *a, int *arr, int size)
+{
+	int	i;
+
+	while (a)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (arr[i] == a->value)
+			{
+				a->index = i;
+				break;
+			}
+			i++;
+		}
+		a = a->next;
+	}
+}
+
 void stack_set_index(t_stack **stack)
 {
-	t_stack *current;
-	int		index;
+	int	size;
+	int	*arr;
 
-	if (!stack || !*stack)
-		return;
-	index = 0;
-	current = *stack;
-	while (current)
-	{
-		current->index = index;
-		index++;
-		current = current->next;
-	}
+	size = stack_size(*stack);
+	arr = stack_to_array(*stack, size);
+	bubble_sort(arr, size);
+	assign_index(*stack, arr, size);
+	free(arr);
 }
