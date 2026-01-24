@@ -17,7 +17,6 @@
       "**/.svn": true,
       "**/.hg": true,
       "**/.DS_Store": true,
-      "**/Thumbs.db": true,
-      "libft": true
+      "**/Thumbs.db": true
     }
 }
