@@ -14,13 +14,6 @@
 
 int	total_cost(int cost_a, int cost_b);
 
-int	abs(int x)
-{
-	if (x < 0)
-		return (-x);
-	return (x);
-}
-
 int	total_cost(int cost_a, int cost_b)
 {
 	int	a;
