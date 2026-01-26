@@ -27,7 +27,7 @@
 int		ft_is_int(char *str);
 void	ft_error(void);
 bool	ft_in_stack(t_stack *stack, int num);
-void	add_in_stack(int argc, char **argv, t_stack **stack, int start);
+bool	add_in_stack(int argc, char **argv, t_stack **stack, int start);
 void	free_stacks(t_stack **stack_a, t_stack **stack_b);
 void	parse_single_argument(char *arg, t_stack **stack);
 

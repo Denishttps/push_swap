@@ -37,7 +37,13 @@ void	ft_free_split(char **arr)
 	free(arr);
 }
 
-void	add_in_stack(int size, char **args, t_stack **stack, int start)
+bool	stack_clear_on_error(t_stack **stack)
+{
+	stack_clear(stack);
+	return (true);
+}
+
+bool	add_in_stack(int size, char **args, t_stack **stack, int start)
 {
 	int		i;
 	long	num;
@@ -47,25 +53,32 @@ void	add_in_stack(int size, char **args, t_stack **stack, int start)
 	while (i < size)
 	{
 		if (!ft_is_int(args[i]))
-			ft_error();
+			return (stack_clear_on_error(stack));
 		num = ft_atoi(args[i]);
 		if (ft_in_stack(*stack, (int)num))
-			ft_error();
+			return (stack_clear_on_error(stack));
 		new_elem = stack_new((int)num);
 		if (!new_elem)
-			ft_error();
+			return (stack_clear_on_error(stack));
 		stack_add_back(stack, new_elem);
 		i++;
 	}
+	return (false);
 }
 
 void	parse_single_argument(char *arg, t_stack **stack)
 {
 	char	**numbers;
+	bool	is_error;
 
 	numbers = ft_split(arg, ' ');
 	if (!numbers)
+	{
+		ft_free_split(numbers);
 		ft_error();
-	add_in_stack(len_array(numbers), numbers, stack, 0);
+	}
+	is_error = add_in_stack(len_array(numbers), numbers, stack, 0);
 	ft_free_split(numbers);
+	if (is_error)
+		ft_error();
 }

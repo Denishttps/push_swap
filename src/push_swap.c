@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	bool	is_error;
 
 	if (argc == 1)
 		ft_error();
@@ -24,7 +25,11 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 		parse_single_argument(argv[1], &stack_a);
 	else
-		add_in_stack(argc, argv, &stack_a, 1);
+	{
+		is_error = add_in_stack(argc, argv, &stack_a, 1);
+		if (is_error)
+			ft_error();
+	}
 	stack_set_index(&stack_a);
 	if (is_sorted(stack_a))
 	{
