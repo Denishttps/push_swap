@@ -72,7 +72,7 @@ void	sort_large_stack(t_stack **a, t_stack **b)
 	while (size > 3)
 	{
 		pb(a, b);
-		size = stack_size(*a);
+		size--;
 	}
 	sort_three(a);
 	while (*b)
